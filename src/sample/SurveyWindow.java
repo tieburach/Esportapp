@@ -3,15 +3,15 @@ package sample;
 import javafx.application.Application;
 import javafx.beans.property.*;
 import javafx.collections.*;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -23,8 +23,7 @@ public class SurveyWindow extends Application {
     int wynikasekurant=0;
     int wynikniezdecydowany=0;
     int wynikdobrzedzialac=0;
-
-    private ControllerMainWindow controllerMainWindow;
+    private ResultWindow resultWindow;
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -97,16 +96,27 @@ public class SurveyWindow extends Application {
         Label labelopis = new Label("Zaznacz te zdania, z którymi się zgadzasz");
         labelopis.setId("opis");
         Button buttonzakoncz = new Button("Zakończ ankietę");
+        buttonzakoncz.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.close();
 
+                if (resultWindow == null) {
+                    Stage resultStage = new Stage();
+                    ResultWindow resultWindow = new ResultWindow();
+                    resultWindow.start(resultStage);
+                }
+            }
+        });
         GridPane layout = new GridPane();
 
 
-        layout.setHalignment(buttonzakoncz, HPos.CENTER);
-        layout.setValignment(buttonzakoncz, VPos.CENTER);
-        layout.setHalignment(labeltytul,HPos.CENTER);
-        layout.setValignment(labeltytul, VPos.CENTER);
-        layout.setHalignment(labelopis,HPos.CENTER);
-        layout.setValignment(labelopis, VPos.CENTER);
+        GridPane.setHalignment(buttonzakoncz, HPos.CENTER);
+        GridPane.setValignment(buttonzakoncz, VPos.CENTER);
+        GridPane.setHalignment(labeltytul,HPos.CENTER);
+        GridPane.setValignment(labeltytul, VPos.CENTER);
+        GridPane.setHalignment(labelopis,HPos.CENTER);
+        GridPane.setValignment(labelopis, VPos.CENTER);
 
         labelopis.setPadding(new Insets(10));
         buttonzakoncz.setPadding(new Insets(10));

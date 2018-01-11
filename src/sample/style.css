@@ -1,6 +1,12 @@
 .root{
-    -fx-background-color: lightsteelblue;
+    -fx-background-color: lightgrey;
 }
+
+.background{
+    -fx-background-image: url("Teemo.jpg");
+    -fx-background-size: cover;
+}
+
 
 .check-box{
     -fx-cell-size:80%;/*

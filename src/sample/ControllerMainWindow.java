@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
 import java.io.IOException;
 
 public class ControllerMainWindow {
@@ -44,7 +43,6 @@ public class ControllerMainWindow {
 
     public void goToSurveyWindow(ActionEvent actionEvent) throws Exception {
         if (surveyWindow == null) {
-            System.out.println("dupa2");
             Stage surveyStage = new Stage();
             SurveyWindow checkList = new SurveyWindow();
             surveyWindow = checkList;

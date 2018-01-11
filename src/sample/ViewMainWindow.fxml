@@ -8,43 +8,37 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10"  vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerMainWindow">
-   <columnConstraints>
+<GridPane alignment="center" hgap="10" vgap="10" prefHeight="700" prefWidth="850" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerMainWindow">
+    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane prefHeight="700" prefWidth="850.0" >
          <children>
-            <SplitPane dividerPositions="0.2506265664160401" layoutX="183.0" layoutY="85.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane dividerPositions="0.8745819397993311" layoutX="320.0" layoutY="248.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="293.0" prefWidth="798.0" styleClass="background">
                      <children>
-                        <Button  alignment="TOP_LEFT" layoutX="65.0" layoutY="161.0" mnemonicParsing="false" onAction="#goToReflexWindow" text="Refleks" textOverrun="CLIP" />
-                        <Button  layoutX="29.0" layoutY="246.0" mnemonicParsing="false" onAction="#goToPerceptivityWindow" text="Spostrzegawczość" />
-                        <Button  layoutX="67.0" layoutY="327.0" mnemonicParsing="false" onAction="#goToSurveyWindow" text="Survey" />
-                     </children></AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                      <AnchorPane layoutX="209.0" layoutY="-129.0" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="0.0" />
+                        <Button layoutX="341.0" layoutY="245.0" mnemonicParsing="false" onAction="#goToPerceptivityWindow" text="Spostrzegawczość" />
+                        <Button alignment="TOP_LEFT" layoutX="377.0" layoutY="159.0" mnemonicParsing="false" onAction="#goToReflexWindow" text="Refleks" textOverrun="CLIP" />
+                        <Button layoutX="379.0" layoutY="318.0" mnemonicParsing="false" onAction="#goToSurveyWindow" text="Survey" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="214.0" prefWidth="798.0">
                      <children>
-                        <SplitPane dividerPositions="0.17953020134228187" layoutX="124.0" layoutY="135.0" orientation="VERTICAL" prefHeight="598.0" prefWidth="594.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
-                            <AnchorPane id="mainwindow" fx:id="glownyekran" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <ButtonBar layoutX="-1.0" layoutY="445.0" prefHeight="40.0" prefWidth="594.0">
-                                      <buttons>
-                                        <Button mnemonicParsing="false" text="Button" />
-                                          <Button mnemonicParsing="false" text="Button" />
-                                          <Button mnemonicParsing="false" onAction="#wyjscie" text="Wyjdz" />
-                                      </buttons>
-                                    </ButtonBar>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children></AnchorPane>
+                        <ButtonBar layoutX="190.0" layoutY="14.0" prefHeight="40.0" prefWidth="594.0">
+                          <buttons>
+                              <Button mnemonicParsing="false" onAction="#wyjscie" text="Wyjdz" />
+                              <Button mnemonicParsing="false" text="Button" />
+                            <Button mnemonicParsing="false" text="Button" />
+                          </buttons>
+                        </ButtonBar>
+                     </children>
+                  </AnchorPane>
               </items>
             </SplitPane>
          </children>
