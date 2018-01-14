@@ -3,87 +3,154 @@ package sample;
 import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.scene.Scene;
-import javafx.scene.chart.BubbleChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import javax.swing.text.Position;
-
 
 public class ResultWindow extends Application {
-    final NumberAxis xAxis1 = new NumberAxis(1, 53, 4);
-    final NumberAxis yAxis1 = new NumberAxis(0, 80, 10);
-    final NumberAxis xAxis2 = new NumberAxis(1, 53, 4);
-    final NumberAxis yAxis2 = new NumberAxis(0, 80, 10);
+    private int wynikodpornosc= SurveyWindow.getWynikodpornosc();
+    private int wynikasekurant= SurveyWindow.getWynikasekurant();
+    private int wynikniezdecydowany=SurveyWindow.getWynikniezdecydowany();
+    private int wynikdobrzedzialac=SurveyWindow.getWynikdobrzedzialac();
 
 
+    final NumberAxis xAxis1 = new NumberAxis(-16, 15, 1);
+    final NumberAxis yAxis1 = new NumberAxis(-11, 12, 1);
 
+    LineChart<Number,Number> lineChart = new LineChart<Number, Number>(xAxis1,yAxis1);
 
 
     @Override public void start(Stage stage) {
         GridPane layout = new GridPane();
             layout.setPrefSize(850,700);
             layout.setPadding(new Insets(10));
+            lineChart.setPrefSize(800,400);
 
-        BubbleChart<Number,Number> blc = new BubbleChart<>(xAxis1,yAxis1);
-            blc.setPrefSize(380,330);
-
-        BubbleChart<Number,Number> blc2 = new BubbleChart<>(xAxis2,yAxis2);
-            blc2.setPrefSize(380,330);
 
         Label opis1 = new Label();
             opis1.setWrapText(true);
             opis1.setPadding(new Insets(10));
-            opis1.setPrefSize(420,330);
-            opis1.setText("Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapie");
+            opis1.setPrefSize(340,130);
+
         Label opis2 = new Label();
             opis2.setPadding(new Insets(10));
             opis2.setWrapText(true);
-            opis2.setText("massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices posuere cubilia Curae, Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis natoque penatibus et ultrices volutpat. Nullam wisi ultricies a, gravida vitae, dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae, ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget, bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus. Sed vel lectus. Ut sagittis, ipsum dolor quam.");
-            opis2.setPrefSize(420,330);
+            opis2.setPrefSize(340,130);
+
+        Label opis3 = new Label();
+            opis3.setPadding(new Insets(10));
+            opis3.setPrefSize(340,130);
+            opis3.setWrapText(true);
+
+        Label opis4 = new Label();
+            opis4.setPadding(new Insets(10));
+            opis4.setWrapText(true);
+            opis4.setPrefSize(340,130);
+
+
+        SplitPane gora = new SplitPane();
+            gora.setMaxSize(720, 130);
+            gora.setOrientation(Orientation.HORIZONTAL);
+            gora.getItems().addAll(opis1, opis2);
+            gora.setDividerPosition(0,0.6f);
+        SplitPane dol = new SplitPane();
+            dol.setMaxSize(720, 130);
+            dol.setOrientation(Orientation.HORIZONTAL);
+            dol.getItems().addAll(opis3, opis4);
+            dol.setDividerPosition(0, 0.6f);
+
+
+        if (wynikodpornosc < 5) {
+            opis1.setText("Wynik koherencji (odpornosci na stres):\n" + "Masz wysoką odporność psychiczną, świetnie radzisz sobie z problemami. Kontrolujesz życie, umiesz korzystać ze swojego doświadczenia i pomocy innych ludzi.");
+        } else if (wynikodpornosc >= 5 && wynikodpornosc < 9) {
+            opis1.setText("Wynik koherencji (odpornosci na stres):\n"+ "Twoja odporność psychiczna jest na średnim poziomie. MoŜe czas się nad sobą zastanowić – czy nie brakuje Ci pewności siebie? Czy nie za rzadko polegasz na innych?");
+        } else {
+            opis1.setText("Wynik koherencji (odpornosci na stres):\n" + "To oznacza niską odporność psychiczną. Zapewne bez przerwy jesteś spięty i aby osiągnąć cel (nawet niezbyt ambitny), musisz mobilizować wszystkie siły. Tak długo nie da się żyć, ciągły stres moze być przyczyną różnych chorób. Głęboko przemyśl, co powinieneś zmienić w sobie i swoim zachowaniu.");
+        }
+
+        if (wynikasekurant < 5){
+            opis2.setText("Wynik asekuracji (unikania ryzyka):\n"+"Brawo. Twój poziom asekuracji w podejmowaniu decyzji jest w normie. Nie unikasz odpowiedzialności, radzisz sobie z problemami. ");
+        } else {
+            opis2.setText("Wynik asekuracji (unikania ryzyka):\n"+"Czas zacząć pracować nad sobą. Najprawdopodobniej męczysz się, nie kontrolujesz swojego życia. W opinii Twoich kolegów - trudno się z Tobą współpracuje. Samodzielnie też nie pracujesz efektywnie.");
+        }
+
+        if (wynikniezdecydowany < 5){
+            opis3.setText("Wynik ambiwalentności (niezdecydowania):\n"+"Twój poziom niezdecydowania jest w normie. Oczywiście, zdarza Ci się zmienić plany, ale robisz to wtedy, gdy jest to konieczne.");
+        } else {
+            opis3.setText("Wynik ambiwalentności (niezdecydowania):\n"+"Często zmieniasz swoje zdanie. Masz ambitne plany, ale ich nie realizujesz. Wpadasz w panikę, gdy czeka Cię nowe zadanie. W opinii kolegów nie można na Tobie polegać. Uważaj, bo ludzie wiedząc, że nie można na Ciebie liczyć, będą się od Ciebie odsuwać. Zapewne nie cieszy Cię to, co robisz, wykonujesz to mechanicznie.");
+        }
+
+        if (wynikdobrzedzialac < 8){
+            opis4.setText("Wynik czy potrafisz dzialać: \n"+"Nie wykorzystujesz swoich możliwości. Stać Cię na więcej ryzyka, bo potrafisz radzić sobie z problemami i zapewne wybrnąłbyś z każdej opresji. ");
+        } else {
+            opis4.setText("Wynik czy potrafisz dzialać: \n"+"Masz bardzo wysoką odporność psychiczną, a swoim zdecydowaniem dajesz innym poczucie bezpieczeństwa. Odwagi do działania dodaje Ci ciekawość świata. Podejmowanie decyzji sprawia Ci satysfakcję. Potrafisz zaplanować pracę, własne wydatki i Ŝycie. Zapewne chętnie będą Cię zatrudniać na kierowniczych stanowiskach.");
+        }
+
+
+        lineChart.getData().clear();
+
+
+        XYChart.Series<Number, Number> seriesmoje1 = new XYChart.Series<>();
+            seriesmoje1.getData().add(new XYChart.Data(-wynikdobrzedzialac,0));
+            seriesmoje1.getData().add(new XYChart.Data(0, wynikniezdecydowany));
+            seriesmoje1.getData().add(new XYChart.Data(wynikodpornosc,0));
+
+        XYChart.Series<Number, Number> seriesmoje2 = new XYChart.Series<>();
+            seriesmoje2.getData().add(new XYChart.Data(-wynikdobrzedzialac,0));
+            seriesmoje2.getData().add(new XYChart.Data(0, -wynikasekurant));
+            seriesmoje2.getData().add(new XYChart.Data(wynikodpornosc,0));
+
+        XYChart.Series<Number, Number> serieskobiety1 = new XYChart.Series<>();
+        int wynikdobrzedzialackobiety = 8;
+        serieskobiety1.getData().add(new XYChart.Data(-wynikdobrzedzialackobiety,0));
+        int wynikniezdecydowanykobiety = 7;
+        serieskobiety1.getData().add(new XYChart.Data(0, wynikniezdecydowanykobiety));
+        int wynikodpornosckobiety = 7;
+        serieskobiety1.getData().add(new XYChart.Data(wynikodpornosckobiety,0));
+
+        XYChart.Series<Number, Number> serieskobiety2 = new XYChart.Series<>();
+            serieskobiety2.getData().add(new XYChart.Data(-wynikdobrzedzialackobiety,0));
+        int wynikasekurantkobiety = 4;
+        serieskobiety2.getData().add(new XYChart.Data(0, -wynikasekurantkobiety));
+            serieskobiety2.getData().add(new XYChart.Data(wynikodpornosckobiety,0));
+
+        XYChart.Series<Number, Number> seriesfaceci1 = new XYChart.Series<>();
+        int wynikdobrzedzialacfaceci = 9;
+        seriesfaceci1.getData().add(new XYChart.Data(-wynikdobrzedzialacfaceci,0));
+        int wynikniezdecydowanyfaceci = 4;
+        seriesfaceci1.getData().add(new XYChart.Data(0, wynikniezdecydowanyfaceci));
+        int wynikodpornoscfaceci = 5;
+        seriesfaceci1.getData().add(new XYChart.Data(wynikodpornoscfaceci,0));
+
+        XYChart.Series<Number, Number> seriesfaceci2 = new XYChart.Series<>();
+            seriesfaceci2.getData().add(new XYChart.Data(-wynikdobrzedzialacfaceci,0));
+        int wynikasekurantfaceci = 2;
+        seriesfaceci2.getData().add(new XYChart.Data(0, -wynikasekurantfaceci));
+            seriesfaceci2.getData().add(new XYChart.Data(wynikodpornoscfaceci,0));
 
 
 
-
-/*
-        GridPane.setHalignment(blc, HPos.RIGHT);
-        GridPane.setValignment(blc, VPos.TOP);
-        GridPane.setHalignment(blc2, HPos.RIGHT);
-        GridPane.setValignment(blc2, VPos.BOTTOM);
-        GridPane.setHalignment(opis1, HPos.LEFT);
-        GridPane.setValignment(opis1, VPos.TOP);
-        GridPane.setHalignment(opis2, HPos.RIGHT);
-        GridPane.setValignment(opis2, VPos.BOTTOM);
-*/
-        XYChart.Series series1 = new XYChart.Series();
-            series1.setName("Product 1");
-            series1.getData().add(new XYChart.Data(3, 35));
-            series1.getData().add(new XYChart.Data(12, 60));
-
-
-        XYChart.Series series2 = new XYChart.Series();
-            series2.setName("Product 2");
-            series2.getData().add(new XYChart.Data(8, 15));
-            series2.getData().add(new XYChart.Data(13, 23));
+        lineChart.getData().addAll(seriesmoje1, seriesmoje2, serieskobiety1, serieskobiety2, seriesfaceci1, seriesfaceci2);
 
 
 
+        layout.add(gora,1,1);
+        layout.add(dol,1,2);
+        layout.setHalignment(gora, HPos.CENTER);
+        layout.setHalignment(dol, HPos.CENTER);
+        layout.add(lineChart,1,3);
 
-
-        blc.getData().addAll(series1, series2);
-        layout.add(blc,2,1);
-        layout.add(blc2,2,2);
-        layout.add(opis1,1,1);
-        layout.add(opis2,1,2);
 
 
 
         Scene scene = new Scene(layout);
+;
         String css = Esport.class.getResource("style.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
+        System.out.println("Klasa to" + getClass().getName());
     }}

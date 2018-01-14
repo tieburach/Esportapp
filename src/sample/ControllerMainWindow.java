@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ControllerMainWindow {
 
 
-    private SurveyWindow surveyWindow;
+    public SurveyWindow surveyWindow;
 
 
     public void wyjscie(ActionEvent actionEvent) {
@@ -46,13 +46,9 @@ public class ControllerMainWindow {
             Stage surveyStage = new Stage();
             SurveyWindow checkList = new SurveyWindow();
             surveyWindow = checkList;
-            surveyStage.setOnCloseRequest(we -> clearSurveyWindow());
             checkList.start(surveyStage);
         }
 
-    }
+    }}
 
-    public void clearSurveyWindow(){
-        surveyWindow=null;
-    }
-}
+

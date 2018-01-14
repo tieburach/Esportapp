@@ -19,11 +19,31 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class SurveyWindow extends Application {
-    int wynikodpornosc=0;
-    int wynikasekurant=0;
-    int wynikniezdecydowany=0;
-    int wynikdobrzedzialac=0;
+
+    private static int wynikodpornosc=0;
+    private static int wynikasekurant=0;
+    private static int wynikniezdecydowany=0;
+    private static int wynikdobrzedzialac=0;
+
+    public static int getWynikodpornosc() {
+        return wynikodpornosc;
+    }
+
+    public static int getWynikasekurant() {
+        return wynikasekurant;
+    }
+
+    public static int getWynikniezdecydowany() {
+        return wynikniezdecydowany;
+    }
+
+    public static int getWynikdobrzedzialac() {
+        return wynikdobrzedzialac;
+    }
+
+
     private ResultWindow resultWindow;
+
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -73,8 +93,6 @@ public class SurveyWindow extends Application {
                 }
 
             }
-
-
         }));
 
         ListView<Task> checklist = new ListView<>(tasks);
@@ -101,11 +119,11 @@ public class SurveyWindow extends Application {
             public void handle(ActionEvent event) {
                 stage.close();
 
-                if (resultWindow == null) {
+
                     Stage resultStage = new Stage();
                     ResultWindow resultWindow = new ResultWindow();
                     resultWindow.start(resultStage);
-                }
+
             }
         });
         GridPane layout = new GridPane();
@@ -166,12 +184,6 @@ public class SurveyWindow extends Application {
             this.selected.set(selected);
         }
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-
 
     private static final String[] pytania = {
             "Często nie zwracasz uwagi, co się wokół dzieje. Nie interesuje cię, jak zachowują się ludzie, nie przysłuchujesz się ich rozmowom.",
