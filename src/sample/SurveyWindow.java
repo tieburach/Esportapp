@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
+import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -50,6 +51,7 @@ public class SurveyWindow extends Application {
         ObservableList<Task> tasks = FXCollections.observableArrayList(
                 Arrays.stream(pytania).map(Task::new).collect(Collectors.toList())
         );
+        stage.setTitle("Test osobowosci");
 
         ListView<String> reactionLog = new ListView<>();
         tasks.forEach(task -> task.selectedProperty().addListener((observable, wasSelected, isSelected) -> {
@@ -118,11 +120,13 @@ public class SurveyWindow extends Application {
             @Override
             public void handle(ActionEvent event) {
                 stage.close();
-
-
-                    Stage resultStage = new Stage();
-                    ResultWindow resultWindow = new ResultWindow();
+                Stage resultStage = new Stage();
+                ResultWindow resultWindow = new ResultWindow();
+                try {
                     resultWindow.start(resultStage);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
 
             }
         });

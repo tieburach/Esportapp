@@ -2,6 +2,10 @@
     -fx-background-color: lightgrey;
 }
 
+#osubackground{
+    -fx-background-image: url("osu.jpg");
+}
+
 .background {
     -fx-background-image: url("Teemo.jpg");
     -fx-background-size: cover;
@@ -9,11 +13,8 @@
 
 
 .check-box{
-    -fx-cell-size:80%;/*
-    -fx-background-color: white;*//*
-    -fx-border-color:grey;
-    -fx-border-radius:4px;
-*/
+    -fx-cell-size:80%;
+
 }
 .default-color0.chart-series-line { -fx-stroke: blue; }
 .default-color1.chart-series-line { -fx-stroke: blue; }
@@ -22,10 +23,26 @@
 .default-color4.chart-series-line { -fx-stroke: green; }
 .default-color5.chart-series-line { -fx-stroke: green; }
 
+
 .chart{
     -fx-create-symbols: false;
 }
 
+.chart-plot-background {
+    -fx-background-color: lightgrey;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: lightgrey;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: lightgrey;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill: #cccccc;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
 .check-box:selected .mark {
 
     -fx-background-color: white;
@@ -36,17 +53,56 @@
 
     -fx-background-color: #28a3f4;
 }
+#podsumowanie{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 30px;
+    -fx-line-height: 20px;
+    -fx-text-fill: antiquewhite;
+    -fx-effect: dropshadow(gaussian, white, 10, 0.0, 5, 5);
+}
 
-/*
+#iloscdobrych{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 22px;
+    -fx-line-height: 22px;
+    -fx-text-fill: #EBC42E;
+    -fx-effect: dropshadow(gaussian, #ffde60, 10, 0.0, 5, 5);
+}
+
+#ilosczlych{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 22px;
+    -fx-line-height: 22px;
+    -fx-text-fill: #EBC42E;
+    -fx-effect: dropshadow(gaussian,#ffde60 , 10, 0.0, 5, 5);
+}
+
+
+#osu{
+    -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
+    -fx-background-color: #e53a3a;
+    -fx-background-radius: 30 30 30 30;
+    -fx-font-size: 20;
+}
+#opiszadania{
+    -fx-font-size: 16;
+    -fx-font-family: times, Times New Roman;
+    -fx-text-fill: #ffde60;
+    -fx-font-style: italic;
+}
+
+#osu:pressed{
+    -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
+    -fx-background-color: green;
+}
 
 .label{
 
     -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
-    -fx-font-size: 28px;
-    -fx-line-height: 40px;
-    -fx-border-color: saddlebrown;
+    -fx-font-size: 14px;
+    -fx-line-height: 20px;;
 }
-*/
+
 #tytul{
     -fx-font-size: 32px;
     -fx-font-family: "Arial Black";
@@ -60,6 +116,18 @@
     -fx-fill: #818181;
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
+
+#wyjscie{
+    -fx-background-color:
+            #c3c4c4,
+            linear-gradient(#d6d6d6 50%, white 100%),
+            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 )
+}
+
 
 .button {
     -fx-padding: 8 15 15 15;

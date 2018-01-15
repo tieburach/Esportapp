@@ -1,13 +1,21 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 
 public class ResultWindow extends Application {
@@ -15,19 +23,20 @@ public class ResultWindow extends Application {
     private int wynikasekurant= SurveyWindow.getWynikasekurant();
     private int wynikniezdecydowany=SurveyWindow.getWynikniezdecydowany();
     private int wynikdobrzedzialac=SurveyWindow.getWynikdobrzedzialac();
+    Button wyjscie = new Button();
 
 
-    final NumberAxis xAxis1 = new NumberAxis(-16, 15, 1);
-    final NumberAxis yAxis1 = new NumberAxis(-11, 12, 1);
+    private final NumberAxis xAxis1 = new NumberAxis(-16, 15, 1);
+    private final NumberAxis yAxis1 = new NumberAxis(-11, 12, 1);
 
-    LineChart<Number,Number> lineChart = new LineChart<Number, Number>(xAxis1,yAxis1);
+    private LineChart<Number,Number> lineChart = new LineChart<>(xAxis1, yAxis1);
 
-
-    @Override public void start(Stage stage) {
+    @Override public void start(Stage stage) throws FileNotFoundException {
+        stage.setTitle("Wyniki testu");
         GridPane layout = new GridPane();
             layout.setPrefSize(850,700);
             layout.setPadding(new Insets(10));
-            lineChart.setPrefSize(800,400);
+            lineChart.setPrefSize(800,330);
 
 
         Label opis1 = new Label();
@@ -104,46 +113,62 @@ public class ResultWindow extends Application {
             seriesmoje2.getData().add(new XYChart.Data(wynikodpornosc,0));
 
         XYChart.Series<Number, Number> serieskobiety1 = new XYChart.Series<>();
-        int wynikdobrzedzialackobiety = 8;
-        serieskobiety1.getData().add(new XYChart.Data(-wynikdobrzedzialackobiety,0));
-        int wynikniezdecydowanykobiety = 7;
-        serieskobiety1.getData().add(new XYChart.Data(0, wynikniezdecydowanykobiety));
-        int wynikodpornosckobiety = 7;
-        serieskobiety1.getData().add(new XYChart.Data(wynikodpornosckobiety,0));
+            int wynikdobrzedzialackobiety = 8;
+            serieskobiety1.getData().add(new XYChart.Data(-wynikdobrzedzialackobiety,0));
+            int wynikniezdecydowanykobiety = 7;
+            serieskobiety1.getData().add(new XYChart.Data(0, wynikniezdecydowanykobiety));
+            int wynikodpornosckobiety = 7;
+            serieskobiety1.getData().add(new XYChart.Data(wynikodpornosckobiety,0));
 
         XYChart.Series<Number, Number> serieskobiety2 = new XYChart.Series<>();
             serieskobiety2.getData().add(new XYChart.Data(-wynikdobrzedzialackobiety,0));
-        int wynikasekurantkobiety = 4;
-        serieskobiety2.getData().add(new XYChart.Data(0, -wynikasekurantkobiety));
+            int wynikasekurantkobiety = 4;
+            serieskobiety2.getData().add(new XYChart.Data(0, -wynikasekurantkobiety));
             serieskobiety2.getData().add(new XYChart.Data(wynikodpornosckobiety,0));
 
         XYChart.Series<Number, Number> seriesfaceci1 = new XYChart.Series<>();
-        int wynikdobrzedzialacfaceci = 9;
-        seriesfaceci1.getData().add(new XYChart.Data(-wynikdobrzedzialacfaceci,0));
-        int wynikniezdecydowanyfaceci = 4;
-        seriesfaceci1.getData().add(new XYChart.Data(0, wynikniezdecydowanyfaceci));
-        int wynikodpornoscfaceci = 5;
-        seriesfaceci1.getData().add(new XYChart.Data(wynikodpornoscfaceci,0));
-
+            int wynikdobrzedzialacfaceci = 9;
+            seriesfaceci1.getData().add(new XYChart.Data(-wynikdobrzedzialacfaceci,0));
+            int wynikniezdecydowanyfaceci = 4;
+            seriesfaceci1.getData().add(new XYChart.Data(0, wynikniezdecydowanyfaceci));
+            int wynikodpornoscfaceci = 5;
+            seriesfaceci1.getData().add(new XYChart.Data(wynikodpornoscfaceci,0));
         XYChart.Series<Number, Number> seriesfaceci2 = new XYChart.Series<>();
             seriesfaceci2.getData().add(new XYChart.Data(-wynikdobrzedzialacfaceci,0));
-        int wynikasekurantfaceci = 2;
-        seriesfaceci2.getData().add(new XYChart.Data(0, -wynikasekurantfaceci));
+            int wynikasekurantfaceci = 2;
+            seriesfaceci2.getData().add(new XYChart.Data(0, -wynikasekurantfaceci));
             seriesfaceci2.getData().add(new XYChart.Data(wynikodpornoscfaceci,0));
 
 
-
+        lineChart.setLegendVisible(false);
         lineChart.getData().addAll(seriesmoje1, seriesmoje2, serieskobiety1, serieskobiety2, seriesfaceci1, seriesfaceci2);
-
-
+        ImageView imageView = new ImageView();
+        Image image1 = new Image(new FileInputStream("C:\\Users\\Tieburach\\IdeaProjects\\proba2\\src\\sample\\wyniki.png"));
+        imageView.setImage(image1);
+        imageView.setFitHeight(70);
+        imageView.setFitWidth(220);
 
         layout.add(gora,1,1);
         layout.add(dol,1,2);
         layout.setHalignment(gora, HPos.CENTER);
         layout.setHalignment(dol, HPos.CENTER);
         layout.add(lineChart,1,3);
+        layout.add(imageView,1,4);
+        layout.setHalignment(imageView, HPos.CENTER);
 
+        wyjscie.setText("Wroc do menu glownego");
+        wyjscie.setId("wyjscie");
+        wyjscie.setLayoutX(800);
+        wyjscie.setLayoutY(680);
+        wyjscie.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                stage.close();
+            }
+        });
 
+        layout.add(wyjscie,1,4);
+        layout.setHalignment(wyjscie, HPos.RIGHT);
 
 
         Scene scene = new Scene(layout);

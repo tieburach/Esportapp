@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ControllerMainWindow {
@@ -20,25 +22,23 @@ public class ControllerMainWindow {
     }
 
     public void goToReflexWindow(ActionEvent actionEvent) throws IOException {
-        Stage ReflexStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ViewReflexWindow.fxml"));
-        Scene scene = new Scene(root);
-        String css = Esport.class.getResource("style.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        ReflexStage.setScene(scene);
-        ReflexStage.show();
-
-
+        Stage reflexStage = new Stage();
+        ReflexWindow reflexWindow = new ReflexWindow();
+        try {
+            reflexWindow.start(reflexStage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void goToPerceptivityWindow(ActionEvent actionEvent) throws IOException {
-        Stage PerceptivityStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ViewPerceptivityWindow.fxml"));
-        Scene scene = new Scene(root);
-        String css = Esport.class.getResource("style.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        PerceptivityStage.setScene(scene);
-        PerceptivityStage.show();
+    public void goToPerceptivityWindow(ActionEvent actionEvent) throws Exception {
+        Stage perceptivityStage = new Stage();
+        PerceptivityWindow perceptivityWindow = new PerceptivityWindow();
+        try {
+            perceptivityWindow.start(perceptivityStage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void goToSurveyWindow(ActionEvent actionEvent) throws Exception {
