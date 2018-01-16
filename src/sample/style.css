@@ -1,16 +1,22 @@
 .root{
-    -fx-background-color: lightgrey;
+    -fx-background-color: white;
 }
 
 #osubackground{
     -fx-background-image: url("osu.jpg");
 }
-
-.background {
-    -fx-background-image: url("Teemo.jpg");
-    -fx-background-size: cover;
+#background{
+    -fx-background-color: white;
 }
 
+
+#opiszakoncz{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 15px;
+    -fx-line-height: 15px;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, #403b3b, 10, 0.0, 5, 5);
+}
 
 .check-box{
     -fx-cell-size:80%;
@@ -81,8 +87,12 @@
 #osu{
     -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
     -fx-background-color: #e53a3a;
-    -fx-background-radius: 30 30 30 30;
+    -fx-background-radius: 40 40 40 40;
     -fx-font-size: 20;
+    -fx-max-height: 55px;
+    -fx-max-width: 55px;
+    -fx-min-height: 55px;
+    -fx-min-width: 55px;
 }
 #opiszadania{
     -fx-font-size: 16;
@@ -107,7 +117,8 @@
     -fx-font-size: 32px;
     -fx-font-family: "Arial Black";
     -fx-fill: #818181;
-    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+    -fx-effect: dropshadow(gaussian, #818181, 5, 0.0, 2, 2);
+    -fx-animated: true;
 }
 
 #opis{
@@ -117,28 +128,17 @@
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
 }
 
-#wyjscie{
-    -fx-background-color:
-            #c3c4c4,
-            linear-gradient(#d6d6d6 50%, white 100%),
-            radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
-    -fx-background-radius: 30;
-    -fx-background-insets: 0,1,1;
-    -fx-text-fill: black;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 )
-}
 
 
 .button {
     -fx-padding: 8 15 15 15;
-    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0;
     -fx-background-radius: 8;
-    -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
-            #9d4024,
-            #d86e3a,
-            radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+    #9d4024,
+    #d86e3a,
+    radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
 }
@@ -156,5 +156,12 @@
 .button.Text {
     -fx-fill: white;
     -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+
 }
 
+
+
+.default-color0.chart-bar { -fx-bar-fill: #669966; }
+.default-color1.chart-bar { -fx-bar-fill: #FF9999; }
+.default-color2.chart-bar { -fx-bar-fill: #FFFF99; }
+.default-color3.chart-bar { -fx-bar-fill:  #0099CC; }

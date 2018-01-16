@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" prefHeight="700" prefWidth="850" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerMainWindow">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerMainWindow">
     <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -16,32 +16,19 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="700" prefWidth="850.0" >
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700" prefWidth="850" style="-fx-background-color: white">
          <children>
-            <SplitPane dividerPositions="0.8745819397993311" layoutX="320.0" layoutY="248.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="293.0" prefWidth="798.0" styleClass="background">
-                     <children>
-                      <AnchorPane layoutX="209.0" layoutY="-129.0" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="0.0" />
-                        <Button layoutX="341.0" layoutY="245.0" mnemonicParsing="false" onAction="#goToPerceptivityWindow" text="Spostrzegawczość" />
-                        <Button alignment="TOP_LEFT" layoutX="377.0" layoutY="159.0" mnemonicParsing="false" onAction="#goToReflexWindow" text="Refleks" textOverrun="CLIP" />
-                        <Button layoutX="379.0" layoutY="318.0" mnemonicParsing="false" onAction="#goToSurveyWindow" text="Survey" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="214.0" prefWidth="798.0">
-                     <children>
-                        <ButtonBar layoutX="190.0" layoutY="14.0" prefHeight="40.0" prefWidth="594.0">
-                          <buttons>
-                              <Button mnemonicParsing="false" onAction="#wyjscie" text="Wyjdz" />
-                              <Button mnemonicParsing="false" text="Button" />
-                            <Button mnemonicParsing="false" text="Button" />
-                          </buttons>
-                        </ButtonBar>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
+             <Button layoutX="275.0" layoutY="240.0" minHeight="50" minWidth="300" mnemonicParsing="false" onAction="#goToReflexWindow" style="-fx-font-size: 30px" text="Refleks" />
+             <Button layoutX="275.0" layoutY="330.0" minHeight="50" minWidth="300" mnemonicParsing="false" onAction="#goToPerceptivityWindow" style="-fx-font-size: 30px" text="Spostrzegawczość" />
+             <Button layoutX="275.0" layoutY="420.0" minHeight="50" minWidth="300" mnemonicParsing="false" onAction="#goToSurveyWindow" style="-fx-font-size: 30px" text="Survey" />
+             <Button layoutX="275.0" layoutY="510.0" minHeight="50" minWidth="300" mnemonicParsing="false" onAction="#goToSummaryWindow" style="-fx-font-size: 30px" text="Zakoncz test" />
+             <Button layoutX="275.0" layoutY="600.0" minHeight="50" minWidth="300" mnemonicParsing="false" onAction="#wyjscie" style="-fx-font-size: 30px" text="Wyjdz" />
+            <ImageView fitHeight="189.0" fitWidth="480.0" layoutX="185.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@title.png" />
+               </image></ImageView>
+
          </children>
-      </AnchorPane>
+    </AnchorPane>
    </children>
 </GridPane>

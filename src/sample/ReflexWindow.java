@@ -9,12 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -55,6 +52,7 @@ public class ReflexWindow extends Application{
             opis.setId("opiszadania");
 
         Button buttonrozpocznij = new Button();
+            buttonrozpocznij.setId("wyjscie");
             buttonrozpocznij.setText("ROZPOCZNIJ TEST");
             buttonrozpocznij.setLayoutX(350);
             buttonrozpocznij.setLayoutY(330);
@@ -109,7 +107,7 @@ public class ReflexWindow extends Application{
             @Override
             public void run() {
                 counter++;
-                if (counter <= 2) {
+                if (counter <= 20) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
@@ -145,14 +143,17 @@ public class ReflexWindow extends Application{
                             wynikzlych=counter-wynik-1;
                             iloscdobrych.setText("Ilosc dobrych:  "+wynik);
                             ilosczlych.setText("Ilosc zlych:  "+wynikzlych);
-                            if (wynik==10){
+                            if (wynik>18){
                                 podsumowanie.setText("SWIETNY WYNIK");
+                                ModelWyniki.setRefleks(3);
                             }
-                            else if (wynik> 5){
+                            else if (wynik> 10){
                                 podsumowanie.setText("SREDNI WYNIK");
+                                ModelWyniki.setRefleks(2);
                             }
                             else {
                                 podsumowanie.setText("SLABY WYNIK");
+                                ModelWyniki.setRefleks(1);
                             }
                         }
                     });

@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -73,20 +72,25 @@ public class ResultWindow extends Application {
 
 
         if (wynikodpornosc < 5) {
+            ModelWyniki.setKoherencja(3);
             opis1.setText("Wynik koherencji (odpornosci na stres):\n" + "Masz wysoką odporność psychiczną, świetnie radzisz sobie z problemami. Kontrolujesz życie, umiesz korzystać ze swojego doświadczenia i pomocy innych ludzi.");
         } else if (wynikodpornosc >= 5 && wynikodpornosc < 9) {
+            ModelWyniki.setKoherencja(2);
             opis1.setText("Wynik koherencji (odpornosci na stres):\n"+ "Twoja odporność psychiczna jest na średnim poziomie. MoŜe czas się nad sobą zastanowić – czy nie brakuje Ci pewności siebie? Czy nie za rzadko polegasz na innych?");
         } else {
+            ModelWyniki.setKoherencja(1);
             opis1.setText("Wynik koherencji (odpornosci na stres):\n" + "To oznacza niską odporność psychiczną. Zapewne bez przerwy jesteś spięty i aby osiągnąć cel (nawet niezbyt ambitny), musisz mobilizować wszystkie siły. Tak długo nie da się żyć, ciągły stres moze być przyczyną różnych chorób. Głęboko przemyśl, co powinieneś zmienić w sobie i swoim zachowaniu.");
         }
 
         if (wynikasekurant < 5){
+            ModelWyniki.incrementpodejmowanie();
             opis2.setText("Wynik asekuracji (unikania ryzyka):\n"+"Brawo. Twój poziom asekuracji w podejmowaniu decyzji jest w normie. Nie unikasz odpowiedzialności, radzisz sobie z problemami. ");
         } else {
             opis2.setText("Wynik asekuracji (unikania ryzyka):\n"+"Czas zacząć pracować nad sobą. Najprawdopodobniej męczysz się, nie kontrolujesz swojego życia. W opinii Twoich kolegów - trudno się z Tobą współpracuje. Samodzielnie też nie pracujesz efektywnie.");
         }
 
         if (wynikniezdecydowany < 5){
+            ModelWyniki.incrementpodejmowanie();
             opis3.setText("Wynik ambiwalentności (niezdecydowania):\n"+"Twój poziom niezdecydowania jest w normie. Oczywiście, zdarza Ci się zmienić plany, ale robisz to wtedy, gdy jest to konieczne.");
         } else {
             opis3.setText("Wynik ambiwalentności (niezdecydowania):\n"+"Często zmieniasz swoje zdanie. Masz ambitne plany, ale ich nie realizujesz. Wpadasz w panikę, gdy czeka Cię nowe zadanie. W opinii kolegów nie można na Tobie polegać. Uważaj, bo ludzie wiedząc, że nie można na Ciebie liczyć, będą się od Ciebie odsuwać. Zapewne nie cieszy Cię to, co robisz, wykonujesz to mechanicznie.");
@@ -95,8 +99,10 @@ public class ResultWindow extends Application {
         if (wynikdobrzedzialac < 8){
             opis4.setText("Wynik czy potrafisz dzialać: \n"+"Nie wykorzystujesz swoich możliwości. Stać Cię na więcej ryzyka, bo potrafisz radzić sobie z problemami i zapewne wybrnąłbyś z każdej opresji. ");
         } else {
+            ModelWyniki.incrementpodejmowanie();
             opis4.setText("Wynik czy potrafisz dzialać: \n"+"Masz bardzo wysoką odporność psychiczną, a swoim zdecydowaniem dajesz innym poczucie bezpieczeństwa. Odwagi do działania dodaje Ci ciekawość świata. Podejmowanie decyzji sprawia Ci satysfakcję. Potrafisz zaplanować pracę, własne wydatki i Ŝycie. Zapewne chętnie będą Cię zatrudniać na kierowniczych stanowiskach.");
         }
+
 
 
         lineChart.getData().clear();
@@ -177,5 +183,4 @@ public class ResultWindow extends Application {
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
-        System.out.println("Klasa to" + getClass().getName());
     }}

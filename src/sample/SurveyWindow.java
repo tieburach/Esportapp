@@ -116,6 +116,7 @@ public class SurveyWindow extends Application {
         Label labelopis = new Label("Zaznacz te zdania, z którymi się zgadzasz");
         labelopis.setId("opis");
         Button buttonzakoncz = new Button("Zakończ ankietę");
+        buttonzakoncz.setId("wyjscie");
         buttonzakoncz.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
