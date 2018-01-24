@@ -1,0 +1,176 @@
+.root{
+    -fx-background-color: white;
+}
+
+#osubackground{
+    -fx-background-image: url("../kinaszw/sources/osu.jpg");
+}
+#background{
+    -fx-background-color: white;
+}
+
+
+#opiszakoncz{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 15px;
+    -fx-line-height: 15px;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, #403b3b, 10, 0.0, 5, 5);
+}
+
+.check-box{
+    -fx-cell-size:80%;
+
+}
+.default-color0.chart-series-line { -fx-stroke: blue; }
+.default-color1.chart-series-line { -fx-stroke: blue; }
+.default-color2.chart-series-line { -fx-stroke: yellow; }
+.default-color3.chart-series-line { -fx-stroke: yellow; }
+.default-color4.chart-series-line { -fx-stroke: green; }
+.default-color5.chart-series-line { -fx-stroke: green; }
+
+
+.chart{
+    -fx-create-symbols: false;
+}
+
+.chart-plot-background {
+    -fx-background-color: lightgrey;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: lightgrey;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: lightgrey;
+}
+
+.chart-alternative-row-fill {
+    -fx-fill: #cccccc;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
+.check-box:selected .mark {
+
+    -fx-background-color: white;
+
+}
+
+.check-box:selected .box {
+
+    -fx-background-color: #28a3f4;
+}
+#podsumowanie{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 30px;
+    -fx-line-height: 20px;
+    -fx-text-fill: antiquewhite;
+    -fx-effect: dropshadow(gaussian, white, 10, 0.0, 5, 5);
+}
+
+#iloscdobrych{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 22px;
+    -fx-line-height: 22px;
+    -fx-text-fill: #EBC42E;
+    -fx-effect: dropshadow(gaussian, #ffde60, 10, 0.0, 5, 5);
+}
+
+#ilosczlych{
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 22px;
+    -fx-line-height: 22px;
+    -fx-text-fill: #EBC42E;
+    -fx-effect: dropshadow(gaussian,#ffde60 , 10, 0.0, 5, 5);
+}
+
+
+#osu{
+    -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
+    -fx-background-color: #e53a3a;
+    -fx-background-radius: 40 40 40 40;
+    -fx-font-size: 20;
+    -fx-max-height: 55px;
+    -fx-max-width: 55px;
+    -fx-min-height: 55px;
+    -fx-min-width: 55px;
+}
+#opiszadania{
+    -fx-font-size: 20px;
+    -fx-font-family: times, Times New Roman;
+    -fx-text-fill: black;
+    -fx-text-alignment: center;
+}
+
+#osu:pressed{
+    -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
+    -fx-background-color: green;
+}
+
+.label{
+
+    -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
+    -fx-font-size: 14px;
+    -fx-line-height: 20px;;
+}
+
+#tytul{
+    -fx-font-size: 32px;
+    -fx-font-family: "Arial Black";
+    -fx-fill: #818181;
+    -fx-effect: dropshadow(gaussian, #818181, 5, 0.0, 2, 2);
+    -fx-animated: true;
+}
+
+#opis{
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial";
+    -fx-fill: #818181;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+
+#buttonzrobiony{
+    -fx-background-color: #60d246;
+}
+
+.button {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+    #9d4024,
+    #d86e3a,
+    radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+.button:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+            #9d4024,
+            #d86e3a,
+            radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+}
+.button:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+.button.Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+
+}
+
+
+
+.default-color0.chart-bar { -fx-bar-fill: #669966; }
+.default-color1.chart-bar { -fx-bar-fill: #FF9999; }
+.default-color2.chart-bar { -fx-bar-fill: #FFFF99; }
+.default-color3.chart-bar { -fx-bar-fill:  #0099CC; }
+
+
+#gora{
+    -fx-background-color: white;
+    -fx-border-color: lightgrey;
+}
