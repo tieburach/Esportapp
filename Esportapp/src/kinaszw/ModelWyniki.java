@@ -17,10 +17,10 @@ public class ModelWyniki {
     public static void setSpostrzegawczosc(int spostrzegawczosc) {
         ModelWyniki.spostrzegawczosc = spostrzegawczosc;
     }
-
     public static int getKoherencja() {
         return koherencja;
     }
+
 
     public static void setKoherencja(int koherencja) {
         ModelWyniki.koherencja = koherencja;
