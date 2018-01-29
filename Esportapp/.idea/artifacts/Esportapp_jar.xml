@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Esportapp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Esportapp_jar</output-path>
+    <root id="archive" name="Esportapp.jar">
+      <element id="module-output" name="Esportapp" />
+    </root>
+  </artifact>
+</component>

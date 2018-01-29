@@ -3,7 +3,7 @@
 }
 
 #osubackground{
-    -fx-background-image: url("../kinaszw/sources/osu.jpg");
+    -fx-background-color: white;
 }
 #background{
     -fx-background-color: white;
@@ -63,29 +63,29 @@
     -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
     -fx-font-size: 30px;
     -fx-line-height: 20px;
-    -fx-text-fill: antiquewhite;
-    -fx-effect: dropshadow(gaussian, white, 10, 0.0, 5, 5);
+    -fx-text-fill: darkblue;
+    -fx-effect: dropshadow(gaussian, lightblue, 10, 0.0, 5, 5);
 }
 
 #iloscdobrych{
     -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
     -fx-font-size: 22px;
     -fx-line-height: 22px;
-    -fx-text-fill: #EBC42E;
-    -fx-effect: dropshadow(gaussian, #ffde60, 10, 0.0, 5, 5);
+    -fx-text-fill: darkblue;
+    -fx-effect: dropshadow(gaussian, lightblue, 10, 0.0, 5, 5);
 }
 
 #ilosczlych{
     -fx-font-family: times, Times New Roman, times-roman, georgia, serif;
     -fx-font-size: 22px;
     -fx-line-height: 22px;
-    -fx-text-fill: #EBC42E;
-    -fx-effect: dropshadow(gaussian,#ffde60 , 10, 0.0, 5, 5);
+    -fx-text-fill: darkblue;
+    -fx-effect: dropshadow(gaussian, lightblue , 10, 0.0, 5, 5);
 }
 
 
 #osu{
-    -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
+    -fx-effect: dropshadow(two-pass-box , royalblue, 10, 0.0 , 4, 5);
     -fx-background-color: #e53a3a;
     -fx-background-radius: 40 40 40 40;
     -fx-font-size: 20;
@@ -102,7 +102,7 @@
 }
 
 #osu:pressed{
-    -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
+    -fx-effect: dropshadow(two-pass-box , royalblue, 10, 0.0 , 4, 5);
     -fx-background-color: green;
 }
 

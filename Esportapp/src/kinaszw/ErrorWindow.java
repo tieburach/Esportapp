@@ -1,8 +1,6 @@
 package kinaszw;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,10 +13,9 @@ import java.io.FileInputStream;
 
 
 public class ErrorWindow extends Application {
-    Pane layout;
     @Override
     public void start(Stage errorStage) throws Exception {
-        layout = new Pane();
+        Pane layout = new Pane();
         ImageView imageView = new ImageView();
         Image image = new Image(new FileInputStream("C:\\Users\\Tieburach\\Desktop\\Esportapp\\src\\kinaszw\\sources\\znakostrzegawczy.jpg"));
         imageView.setImage(image);
@@ -36,12 +33,7 @@ public class ErrorWindow extends Application {
         button.setText("Rozumiem.");
         button.setLayoutX(140);
         button.setLayoutY(105);
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                errorStage.close();
-            }
-        });
+        button.setOnAction(event -> errorStage.close());
         layout.setPrefSize(400,150);
         layout.getChildren().addAll(label, button, imageView);
 

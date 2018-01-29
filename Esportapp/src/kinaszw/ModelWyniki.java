@@ -6,27 +6,28 @@ public class ModelWyniki {
     private static int koherencja;
     private static int podejmowaniedecyzji;
 
-    public static void incrementpodejmowanie(){
+    static void incrementpodejmowanie() {
         podejmowaniedecyzji++;
     }
 
-    public static int getSpostrzegawczosc() {
+    static int getSpostrzegawczosc() {
         return spostrzegawczosc;
     }
 
-    public static void setSpostrzegawczosc(int spostrzegawczosc) {
+    static void setSpostrzegawczosc(int spostrzegawczosc) {
         ModelWyniki.spostrzegawczosc = spostrzegawczosc;
     }
-    public static int getKoherencja() {
+
+    static int getKoherencja() {
         return koherencja;
     }
 
 
-    public static void setKoherencja(int koherencja) {
+    static void setKoherencja(int koherencja) {
         ModelWyniki.koherencja = koherencja;
     }
 
-    public static int getPodejmowaniedecyzji() {
+    static int getPodejmowaniedecyzji() {
         return podejmowaniedecyzji;
     }
 
@@ -34,11 +35,11 @@ public class ModelWyniki {
         ModelWyniki.podejmowaniedecyzji = podejmowaniedecyzji;
     }
 
-    public static int getRefleks() {
+    static int getRefleks() {
         return refleks;
     }
 
-    public static void setRefleks(int refleks) {
+    static void setRefleks(int refleks) {
         ModelWyniki.refleks = refleks;
     }
 }

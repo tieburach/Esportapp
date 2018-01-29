@@ -48,7 +48,7 @@ public class ReflexWindow extends Application {
         opis.setLayoutX(180);
         opis.setLayoutY(160);
         opis.setWrapText(true);
-        opis.setPrefSize(500, 200);
+        opis.setPrefSize(500, 150);
         opis.setId("opiszadania");
 
         Button buttonrozpocznij = new Button();
@@ -146,6 +146,6 @@ public class ReflexWindow extends Application {
                     });
                 }
             }
-        }, 500, 900, TimeUnit.MILLISECONDS);
+        }, 500, 800, TimeUnit.MILLISECONDS);
     }
 }

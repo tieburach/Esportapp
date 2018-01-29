@@ -1,11 +1,14 @@
 package kinaszw;
 
 import javafx.application.Application;
-import javafx.beans.property.*;
-import javafx.collections.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +19,8 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class SurveyWindow extends Application {
@@ -26,19 +30,19 @@ public class SurveyWindow extends Application {
     private static int wynikniezdecydowany=0;
     private static int wynikdobrzedzialac=0;
 
-    public static int getWynikodpornosc() {
+    static int getWynikodpornosc() {
         return wynikodpornosc;
     }
 
-    public static int getWynikasekurant() {
+    static int getWynikasekurant() {
         return wynikasekurant;
     }
 
-    public static int getWynikniezdecydowany() {
+    static int getWynikniezdecydowany() {
         return wynikniezdecydowany;
     }
 
-    public static int getWynikdobrzedzialac() {
+    static int getWynikdobrzedzialac() {
         return wynikdobrzedzialac;
     }
 
@@ -52,8 +56,6 @@ public class SurveyWindow extends Application {
                 Arrays.stream(pytania).map(Task::new).collect(Collectors.toList())
         );
         stage.setTitle("Test osobowosci");
-
-        ListView<String> reactionLog = new ListView<>();
         tasks.forEach(task -> task.selectedProperty().addListener((observable, wasSelected, isSelected) -> {
             if (isSelected) {
                 String x =task.getName();
@@ -98,7 +100,7 @@ public class SurveyWindow extends Application {
         }));
 
         ListView<Task> checklist = new ListView<>(tasks);
-        checklist.setCellFactory(CheckBoxListCell.forListView(Task::selectedProperty, new StringConverter<Task>() {
+        checklist.setCellFactory(CheckBoxListCell.forListView(Task::selectedProperty, new StringConverter<>() {
 
             @Override
             public String toString(Task object) {
@@ -117,19 +119,15 @@ public class SurveyWindow extends Application {
         labelopis.setId("opis");
         Button buttonzakoncz = new Button("Zakończ ankietę");
         buttonzakoncz.setId("wyjscie");
-        buttonzakoncz.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //stage.close();
-                Stage resultStage = stage;
-                ResultWindow resultWindow = new ResultWindow();
-                try {
-                    resultWindow.start(resultStage);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-
+        buttonzakoncz.setOnAction(event -> {
+            //stage.close();
+            resultWindow = new ResultWindow();
+            try {
+                resultWindow.start(stage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
+
         });
         GridPane layout = new GridPane();
 
@@ -168,26 +166,18 @@ public class SurveyWindow extends Application {
         private ReadOnlyStringWrapper name = new ReadOnlyStringWrapper();
         private BooleanProperty selected = new SimpleBooleanProperty(false);
 
-        public Task(String name) {
+        Task(String name) {
             this.name.set(name);
         }
 
-        public String getName() {
+        String getName() {
             return name.get();
         }
-        public ReadOnlyStringProperty nameProperty() {
-            return name.getReadOnlyProperty();
-        }
 
-        public BooleanProperty selectedProperty() {
+        BooleanProperty selectedProperty() {
             return selected;
         }
-        public boolean isSelected() {
-            return selected.get();
-        }
-        public void setSelected(boolean selected) {
-            this.selected.set(selected);
-        }
+
     }
 
     private static final String[] pytania = {
@@ -243,7 +233,7 @@ public class SurveyWindow extends Application {
             "Bardziej odpowiada ci rola zastępcy niż szefa zespołu."
     };
 
-    public String[] pytaniaodpornosc = new String[]{
+    private String[] pytaniaodpornosc = new String[]{
             "Często nie zwracasz uwagi, co się wokół dzieje. Nie interesuje cię, jak zachowują się ludzie, nie przysłuchujesz się ich rozmowom.",
             "Często jesteś zaskoczony zachowaniem znajomych. Myślałeś, ze są bardziej przewidywalni.",
             "Nieraz zawiedli cię ludzie, na których liczyłeś. Czułeś się wtedy osamotniony.",
@@ -258,7 +248,7 @@ public class SurveyWindow extends Application {
             "Nie panujesz nad uczuciami. Krzyczysz i śmiejesz się bez powodu.",
             "Nie potrafisz odnaleźć większego sensu w swoim działaniu."
     };
-    public String[] pytaniaasekurant = new String[]{
+    private String[] pytaniaasekurant = new String[]{
             "Denerwują cię ludzie z najblizszego otoczenia. Myślisz: tak juz musi być, ich nie da się zmienić.",
             "Myślisz o wielkiej karierze. Nic jednak nie robisz, aby zrealizować marzenia.",
             "Zazdrościsz koledze, który uczęszcza do „lepszej” szkoły niż ty. W ogóle inni mają lepiej – myślisz.",
@@ -272,7 +262,7 @@ public class SurveyWindow extends Application {
             "Bardziej odpowiada ci rola zastępcy niż szefa zespołu."
     };
 
-    public String[] pytanianiezdecydowany = new String[]{
+    private String[] pytanianiezdecydowany = new String[]{
             "Chcesz uczestniczyć w pracy nad ważnym projektem. Wycofujesz się jednak w ostatniej chwili.",
             "Zazwyczaj opracowujesz plan działania, ale się go nie trzymasz.",
             "Obiecałeś koledze, że na zebraniu klasowym poprzesz jego pomysł. Nie odezwałeś się jednak ani słowem.",
@@ -286,7 +276,7 @@ public class SurveyWindow extends Application {
             "Niechętnie sam planujesz pracę. Wolisz, gdy inni mówią ci, co masz robić.",
     };
 
-    public String[] pytaniadobrzedzialac = new String[]{
+    private String[] pytaniadobrzedzialac = new String[]{
             "Nawet w trudnej sytuacji nie tracisz głowy. Szybko znajdujesz rozwiązanie i wprowadzasz je w zycie.",
             "Lubisz porównywać swoje osiągnięcia z dokonaniami innych.",
             "W drodze do celu nie zrazasz się trudnościami. Szybko je przezwycięzasz.",
@@ -304,14 +294,13 @@ public class SurveyWindow extends Application {
             "Niesłusznie posądzono cię o kwestionowanie autorytetu waszego wychowawcy. Bez trudu znajdujesz wyjście z tej niezręcznej sytuacji."
     };
 
-    public boolean contains(String[] tablica, String string){
+    private boolean contains(String[] tablica, String string){
         boolean wynik=false;
-        for (int j =0; j<tablica.length; j++) {
-            if(tablica[j]==string){
-                wynik=true;
+        for (String aTablica : tablica) {
+            if (Objects.equals(aTablica, string)) {
+                wynik = true;
                 break;
-            }
-            else wynik=false;
+            } else wynik = false;
         }
         return wynik;
     }

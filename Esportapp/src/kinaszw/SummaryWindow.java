@@ -110,17 +110,17 @@ public class SummaryWindow extends Application {
         opis.setLayoutX(370);
         opis.setLayoutY(330);
 
-        String wynik = "Twoja proponowana pozycja to: ";
+        String wynik = "Twoja proponowana pozycja to:\n";
         if (refleks >= 4 && spostrzegawczosc >= 4 && decyzje >= 4 && koherencja >= 4) {
-            wynik = wynik + "Wszędzie. \n Możesz grać na każdej pozycji, test przeszedłeś na znakomitych wynikach. Sam musisz zdecydować co najbardziej ci odpowiada.";
-        } else if (refleks > 3 && spostrzegawczosc > 2) {
-            wynik = wynik + "Prowadzacy. \n Masz bardzo dobry refleks i spostrzegawczosc. Nadawałbyś się świetnie na prowadzącego w drużynie. To rola, w której trzeba pokazywać dużo umiejętności indywidualnych. Ci gracze z reguły są najbardziej widowiskowi.";
-        } else if (spostrzegawczosc > 3 && koherencja > 2 && decyzje > 1) {
-            wynik = wynik + "Wsparcie. \n Masz bardzo wysoką spostrzegawczość. Przydałbyś się drużynie jako gracz wspierający. Często zapominana rola, aczkolwiek jedna z najważniejszych dla drużyny.";
+            wynik = wynik + "Wszędzie. \nMożesz grać na każdej pozycji, test przeszedłeś na znakomitych wynikach. Sam musisz zdecydować co najbardziej ci odpowiada.";
+        } else if (refleks > 3 && spostrzegawczosc >= 2) {
+            wynik = wynik + "Prowadzacy. \nMasz bardzo dobry refleks i spostrzegawczosc. Nadawałbyś się świetnie na prowadzącego w drużynie. To rola, w której trzeba pokazywać dużo umiejętności indywidualnych. Ci gracze z reguły są najbardziej widowiskowi.";
+        } else if (spostrzegawczosc > 3 && koherencja >= 1 && decyzje >= 1) {
+            wynik = wynik + "Wsparcie. \nMasz bardzo wysoką spostrzegawczość. Przydałbyś się drużynie jako gracz wspierający. Często zapominana rola, aczkolwiek jedna z najważniejszych dla drużyny.";
         } else if (koherencja > 3 && decyzje > 3) {
-            wynik = wynik + "Shotcaller. \n Jesteś osobą o dużej odporności i dobrze idzie ci podejmowanie decyzji, nie tylko za siebie, ale i w imieniu drużyny. Nie panikujesz, lubisz przewodzić ludźmi. Odnajdziesz się jako głowa zespołu. ";
-        } else if (spostrzegawczosc < 3 && refleks < 3 && koherencja < 3 && decyzje < 3) {
-            wynik = wynik + "Żadna z powyższych. \n Może e-sport nie jest dla Ciebie?";
+            wynik = wynik + "Shotcaller. \nJesteś osobą o dużej odporności i dobrze idzie ci podejmowanie decyzji, nie tylko za siebie, ale i w imieniu drużyny. Nie panikujesz, lubisz przewodzić ludźmi. Odnajdziesz się jako głowa zespołu. ";
+        } else if (spostrzegawczosc < 2 && refleks < 2 && koherencja <= 3 && decyzje <= 3) {
+            wynik = wynik + "Żadna z powyższych. \nMoże e-sport nie jest dla Ciebie?";
         } else {
             wynik = wynik + "Solo. \n Twoje umiejętności wskazują że jesteś graczem uniwersalnym. Tacy ludzie z reguły są pomocni w każdej dziedzinie, potrafią podejmować decyzje, ale również mają umiejętności do ogrania rywala.";
         }

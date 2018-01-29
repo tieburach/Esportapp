@@ -1,11 +1,13 @@
 package kinaszw;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.*;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
-import javafx.scene.chart.*;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
@@ -23,7 +25,7 @@ public class ResultWindow extends Application {
     private int wynikasekurant = SurveyWindow.getWynikasekurant();
     private int wynikniezdecydowany = SurveyWindow.getWynikniezdecydowany();
     private int wynikdobrzedzialac = SurveyWindow.getWynikdobrzedzialac();
-    Button wyjscie = new Button();
+    private Button wyjscie = new Button();
 
 
     private final NumberAxis xAxis1 = new NumberAxis(-16, 15, 1);
@@ -81,7 +83,7 @@ public class ResultWindow extends Application {
         if (wynikodpornosc < 5) {
             ModelWyniki.setKoherencja(3);
             opis1.setText("Wynik koherencji (odpornosci na stres):\n" + "Masz wysoką odporność psychiczną, świetnie radzisz sobie z problemami. Kontrolujesz życie, umiesz korzystać ze swojego doświadczenia i pomocy innych ludzi.");
-        } else if (wynikodpornosc >= 5 && wynikodpornosc < 9) {
+        } else if (wynikodpornosc < 9) {
             ModelWyniki.setKoherencja(2);
             opis1.setText("Wynik koherencji (odpornosci na stres):\n" + "Twoja odporność psychiczna jest na średnim poziomie. MoŜe czas się nad sobą zastanowić – czy nie brakuje Ci pewności siebie? Czy nie za rzadko polegasz na innych?");
         } else {
@@ -162,25 +164,20 @@ public class ResultWindow extends Application {
 
         layout.add(gora, 1, 1);
         layout.add(dol, 1, 2);
-        layout.setHalignment(gora, HPos.CENTER);
-        layout.setHalignment(dol, HPos.CENTER);
+        GridPane.setHalignment(gora, HPos.CENTER);
+        GridPane.setHalignment(dol, HPos.CENTER);
         layout.add(lineChart, 1, 3);
         layout.add(imageView, 1, 4);
-        layout.setHalignment(imageView, HPos.CENTER);
+        GridPane.setHalignment(imageView, HPos.CENTER);
 
         wyjscie.setText("Wroc do menu glownego");
         wyjscie.setId("wyjscie");
         wyjscie.setLayoutX(800);
         wyjscie.setLayoutY(680);
-        wyjscie.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                stage.close();
-            }
-        });
+        wyjscie.setOnAction(event -> stage.close());
 
         layout.add(wyjscie, 1, 4);
-        layout.setHalignment(wyjscie, HPos.RIGHT);
+        GridPane.setHalignment(wyjscie, HPos.RIGHT);
 
 
         Scene scene = new Scene(layout);

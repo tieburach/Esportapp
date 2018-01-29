@@ -1,6 +1,5 @@
 package kinaszw;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -9,17 +8,17 @@ import javafx.stage.Stage;
 public class ControllerMainWindow {
 
 
-    public static ReflexWindow reflexWindow;
-    public static PerceptivityWindow perceptivityWindow;
-    public static SurveyWindow surveyWindow;
-    public static SummaryWindow summaryWindow;
+    private static ReflexWindow reflexWindow;
+    private static PerceptivityWindow perceptivityWindow;
+    private static SurveyWindow surveyWindow;
+    private static SummaryWindow summaryWindow;
 
 
     @FXML
     Button summaryButton, reflexButton, perceptivityButton, surveyButton;
 
 
-    public void sprawdzCzyKoniec() {
+    private void sprawdzCzyKoniec() {
         if (reflexWindow != null) {
             reflexButton.setId("buttonzrobiony");
         }
@@ -35,7 +34,7 @@ public class ControllerMainWindow {
         }
     }
 
-    public static String jakieZostaly() {
+    static String jakieZostaly() {
         String wynik = "";
 
         if (reflexWindow == null) {
@@ -53,11 +52,11 @@ public class ControllerMainWindow {
         return wynik;
     }
 
-    public void wyjscie(ActionEvent actionEvent) {
+    public void wyjscie() {
         System.exit(0);
     }
 
-    public void goToReflexWindow(ActionEvent actionEvent) throws Exception {
+    public void goToReflexWindow() throws Exception {
         if (reflexWindow == null) {
             Stage reflexStage = new Stage();
             reflexWindow = new ReflexWindow();
@@ -72,7 +71,7 @@ public class ControllerMainWindow {
         }
     }
 
-    public void goToPerceptivityWindow(ActionEvent actionEvent) throws Exception {
+    public void goToPerceptivityWindow() throws Exception {
         if (perceptivityWindow == null) {
             Stage perceptivityStage = new Stage();
             perceptivityWindow = new PerceptivityWindow();
@@ -88,7 +87,7 @@ public class ControllerMainWindow {
 
     }
 
-    public void goToSurveyWindow(ActionEvent actionEvent) throws Exception {
+    public void goToSurveyWindow() throws Exception {
         if (surveyWindow == null) {
             Stage surveyStage = new Stage();
             surveyWindow = new SurveyWindow();
@@ -100,7 +99,7 @@ public class ControllerMainWindow {
 
     }
 
-    public void goToSummaryWindow(ActionEvent actionEvent) throws Exception {
+    public void goToSummaryWindow() throws Exception {
         if (summaryWindow == null) {
             Stage summaryStage = new Stage();
             summaryWindow = new SummaryWindow();
@@ -109,7 +108,7 @@ public class ControllerMainWindow {
 
     }
 
-    public void wyswietlblad() throws Exception {
+    private void wyswietlblad() throws Exception {
         Stage errorStage = new Stage();
         ErrorWindow errorWindow = new ErrorWindow();
         errorWindow.start(errorStage);

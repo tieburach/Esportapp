@@ -3,18 +3,16 @@ package kinaszw;
 class Stoper {
     private long start;
     private long stop;
-    private String nazwa;
 
-
-    public void start(){
+    void start(){
         start = System.currentTimeMillis();
     }
 
-    public void stop(){
+    void stop(){
         stop = System.currentTimeMillis();
     }
 
-    public double getWynik(){
+    double getWynik(){
         return (stop - start) / 1000.0;
     }
 
