@@ -1,3 +1,4 @@
+# E-SPORT APP
 Aplikacja realizowana w ramach projektu indywidualnego na uczelni.
 
 Celem projektu jest utworzenie aplikacji pozwalającej na testowanie istotnych dla graczy
